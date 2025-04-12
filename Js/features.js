@@ -1,9 +1,17 @@
-document.getElementById('add-money').addEventListener('click',function(){
-    document.getElementById('addMoneyForm').classList.remove('hidden');
-    document.getElementById('cashOutForm').classList.add('hidden');
-})
-document.getElementById('cash-out').addEventListener('click',function(){
-   
-    document.getElementById('cashOutForm').classList.remove('hidden');
-    document.getElementById('addMoneyForm').classList.add('hidden');
-})
+// 1. Balance Wraper start
+
+let isBalanceVisible = false;
+
+document.getElementById('balance-wrapper').addEventListener('click', () => {
+  const balanceEl = document.getElementById('balance');
+  if (isBalanceVisible) {
+    balanceEl.textContent = 'Balance';
+  } else {
+    balanceEl.textContent = balance.toLocaleString();
+  }
+  isBalanceVisible = !isBalanceVisible;
+});
+
+
+// Balance Wraper end------
+

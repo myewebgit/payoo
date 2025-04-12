@@ -10,109 +10,69 @@
 <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
 </head>
 <body class="bg-gray-100 flex justify-center items-center min-h-screen">
-
-    <main class="flex justify-center">
-      <div class="mockup-phone">
-        <div class="mockup-phone-camera"></div>
-        <div class="mockup-phone-display bg-white text-black grid place-content-center p-4 space-y-4">
+  <main class="flex justify-center">
+    <div class="mockup-phone">
+      <div class="mockup-phone-camera"></div>
+      <div class="mockup-phone-display bg-white text-black grid place-content-center p-4 space-y-4">
+        
+        <!-- Balance Section -->
+        <div class="stats shadow">
+          <div class="stat cursor-pointer" id="balance-wrapper">
+            <div class="stat-title">Available Balance</div>
+            <div id="balance" class="stat-value">Balance</div>
+          </div>
           
-          <!-- Balance Section -->
-          <div class="stats shadow">
-            <div class="stat">
-              <div class="stat-title">Available Balance</div>
-              <div id="balance" class="stat-value">89400</div>
-            </div>
-          </div>
-          <div class="divider"></div>
-          <div class="flex gap-2">
-            <button id="add-money" class="btn btn-lg btn-primary text-white">Add Money</button>
-            <button id="cash-out" class="btn btn-lg btn-secondary text-white">Cash Out</button>
-          </div>
-          <div class="divider"></div>
-          <!-- Add Money Form -->
-          <form id="addMoneyForm" class="space-y-3 w-full">
-            <div>
-              <label class="label">
-                <span class="label-text">Add Money</span>
-              </label>
-              <input id="Input-add-money" type="number" placeholder="Enter amount" class="input input-bordered w-full" required />
-            </div>
-  
-            <div>
-              <label class="label">
-                <span class="label-text">PIN</span>
-              </label>
-              <input id="Input-pin" type="password" placeholder="Enter PIN" class="input input-bordered w-full" required />
-            </div>
-  
-            <button id="btn-add-money" type="submit" class="btn btn-primary w-full">Add Money</button>
-            <!-- <button id="btn-cash-out" type="submit" class="btn btn-primary w-full">Cash out</button> -->
-          </form>
-
-          <!-- Cash out form start -->
-          <form id="cashOutForm" class=" space-y-3 w-full">
-            <div>
-              <label class="label">
-                <span class="label-text">Cash Out</span>
-              </label>
-              <input id="Cash-out-money" type="number" placeholder="Enter amount" class="input input-bordered w-full" required />
-            </div>
-  
-            <div>
-              <label class="label">
-                <span class="label-text">PIN</span>
-              </label>
-              <input id="cash-out-pin" type="password" placeholder="Enter PIN" class="input input-bordered w-full" required />
-            </div>
-  
-            <!-- <button id="btn-add-money" type="submit" class="btn btn-primary w-full">Add Money</button> -->
-            <button id="btn-cash-out" type="submit" class="btn btn-primary w-full">Cash out</button>
-          </form>
-       <!-- Cash out form end -->
-          <!-- Message Area -->
-          <div id="message" class="text-center text-sm font-medium"></div>
-  
         </div>
+
+        <div class="divider"></div>
+
+        <!-- Action Buttons -->
+        <div class="flex gap-2">
+          <button id="add-money" class="btn btn-lg btn-primary text-white">Add Money</button>
+          <button id="cash-out" class="btn btn-lg btn-secondary text-white">Cash Out</button>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Add Money Form -->
+        <form id="addMoneyForm" class="space-y-3 w-full">
+          <div>
+            <label class="label"><span class="label-text">Add Money</span></label>
+            <input id="Input-add-money" type="number" placeholder="Enter amount" class="input input-bordered w-full" required />
+          </div>
+
+          <div>
+            <label class="label"><span class="label-text">PIN</span></label>
+            <input id="Input-pin" type="password" placeholder="Enter PIN" class="input input-bordered w-full" required />
+          </div>
+
+          <button id="btn-add-money" type="submit" class="btn btn-primary w-full">Add Money</button>
+        </form>
+
+        <!-- Cash Out Form -->
+        <form id="cashOutForm" class="space-y-3 w-full hidden">
+          <div>
+            <label class="label"><span class="label-text">Cash Out</span></label>
+            <input id="Cash-out-money" type="number" placeholder="Enter amount" class="input input-bordered w-full" required />
+          </div>
+
+          <div>
+            <label class="label"><span class="label-text">PIN</span></label>
+            <input id="cash-out-pin" type="password" placeholder="Enter PIN" class="input input-bordered w-full" required />
+          </div>
+
+          <button id="btn-cash-out" type="submit" class="btn btn-primary w-full">Cash Out</button>
+        </form>
+
+        <!-- Message Area -->
+        <div id="message" class="text-center text-sm font-medium"></div>
+
       </div>
-    </main>
-  
-    <!-- <script>
-      const form = document.getElementById('addMoneyForm');
-      const balanceEl = document.getElementById('balance');
-      const messageEl = document.getElementById('message');
-  
-      let balance = 89400;
-      const correctPIN = '1234'; // Change to your desired PIN
-  
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-  
-        const amount = parseFloat(document.getElementById('moneyInput').value);
-        const enteredPIN = document.getElementById('pinInput').value;
-  
-        if (isNaN(amount) || amount <= 0) {
-          messageEl.textContent = 'Please enter a valid amount.';
-          messageEl.className = 'text-red-600';
-          return;
-        }
-  
-        if (enteredPIN !== correctPIN) {
-          messageEl.textContent = 'Incorrect PIN. Try again.';
-          messageEl.className = 'text-red-600';
-          return;
-        }
-  
-        // Update balance
-        balance += amount;
-        balanceEl.textContent = balance.toLocaleString();
-        messageEl.textContent = 'Money added successfully!';
-        messageEl.className = 'text-green-600';
-  
-        // Reset form
-        form.reset();
-      });
-    </script> -->
-  <script src="Js/home.js"></script>
-  <script src="Js/cashout.js"></script>
-  </body>
+    </div>
+  </main>
+
+  <script src="Js/app.js"></script>
+  <script src="Js/features.js"></script>
+</body>
+
 </html>
